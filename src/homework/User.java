@@ -1,22 +1,19 @@
 package homework;
 
-public class User{
+// Реализуем интерфейс Reportable для отчетов о пользователях (Принцип разделения интерфейсов)
+public class User implements Reportable {
     private final String name;
 
-    public User(String name){
+    public User(String name) {
         this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void save(){
-        Persister persister = new Persister(this);
-        persister.save();
-    }
-
-    public void report(){
-        System.out.println("Report for user: " + name);
+    @Override
+    public void report() {
+        System.out.println("Отчет для пользователя: " + name);
     }
 }
